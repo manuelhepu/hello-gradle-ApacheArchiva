@@ -28,7 +28,7 @@ publishing {
         publications {
                 bootJava(MavenPublication) {
                         artifact bootJar
-			//version = '1.0.' +( System.getenv('BUILD_NUMBER') ?: '0') + '-SNAPSHOT'
+			version = '1.0.' +( System.getenv('BUILD_NUMBER') ?: '0') + '-SNAPSHOT'
 			//groupId = 'com.sinensia'
 			//artifactId = 'helloSpringTesting'
 
@@ -38,8 +38,8 @@ publishing {
             maven {
                 url "http://localhost:9082/repository/snapshots/"
                 credentials {
-			username 'admin'
-			password 'sinensia11'
+			username = System.getenv('username')
+			password = System.getenv('password')
 
 
                 }
