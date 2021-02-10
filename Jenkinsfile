@@ -25,7 +25,7 @@ pipeline {
 	stage('Publish') {
             steps {
                    	    
-			withCredentials([usernameColonPassword(credentialsId: 'credenciales', variable: 'USERPASS')]){
+			withCredentials([usernameColonPassword(credentialsId: 'credenciales', usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD')]){
 				 sh './gradlew publish'
 			}
                 
