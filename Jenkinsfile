@@ -24,6 +24,7 @@ pipeline {
 
 	stage('Publish') {
             steps {
+		    archiveArtifacts 'build/libs/*.jar'
                    	    
 			withCredentials([usernameColonPassword(credentialsId: 'credenciales', usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD')]){
 				 sh './gradlew publish'
