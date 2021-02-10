@@ -1,4 +1,4 @@
-pipeline {
+epipeline {
     agent any
 
     stages {
@@ -25,7 +25,7 @@ pipeline {
 	stage('Publish') {
             steps {
                    	    
-			withCredentials([string(credentialsId: 'gitLabPrivateToken', variable: 'TOKEN')]){
+			withCredentials([string(credentialsId: 'credenciales', variable: 'credenciales')]){
 				 sh './gradlew publish'
 			}
                 
